@@ -5,10 +5,11 @@
 // var keys = require("./keys.js");
 
 var axios = require("axios");
+var moment = require('moment');
+var search = process.argv[3];
+var input = process.argv[2];
 
-
-var search = process.argv[2];
-
+if (input==="movie-this"){
 axios.get("http://www.omdbapi.com/?t=" +search+ "&y=&plot=short&apikey=trilogy")
 .then(
   function(response) {
@@ -25,3 +26,26 @@ axios.get("http://www.omdbapi.com/?t=" +search+ "&y=&plot=short&apikey=trilogy")
     if (error.response) {    
     }
   });
+}if (input==="concert-this"){
+    axios.get("https://rest.bandsintown.com/artists/"+search+"/events?app_id=codingbootcamp")
+    .then(function(response) {   
+    var results = response.data
+    if (results.length===0){
+        console.log("Bummer, it doesn't look like " +search+ " has any upcoming shows! Try another search.")
+    }else {      
+    console.log("Upcoming Shows For: " + search);
+    for (var result of results){
+    var eventDate =  moment(result.datetime).format("MMM Do YY");
+    console.log("Venue: " + result.venue.name);
+    console.log("Venue Location: "+ result.venue.city + ", " + result.venue.region);
+    console.log("Event Date: "+ eventDate);
+    console.log("-----------------------------")
+        }   
+    }
+
+})
+    .catch(function(error) {
+    if (error.response) {    
+        }
+    });
+}
