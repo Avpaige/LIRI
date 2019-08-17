@@ -1,12 +1,15 @@
 require("dotenv").config();
-var keys = require("./keys.js");
+var keys = require("./keys.js").spotify;
 var fs = require("fs");
 var Spotify = require("node-spotify-api");
-var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 var moment = require('moment');
 var search = process.argv[3];
 var input = process.argv[2];
+var spotify = new Spotify({
+   id: keys.id,
+   secret: keys.secret,
+});
 
 // var inquirer = require("inquirer");
 
@@ -72,17 +75,60 @@ if (input==="concert-this"){
 }
 
 if (input==="spotify-this-song"){
-    spotify.search({type:"track",query: search,},
-    function (error, data){
-    if (error) {  
-        console.log("Hmmm we don't know that one, can you hum it?")
-    }else{
-      var songs= repsonse.data  
-       for (song of songs){
-            console.log(song)
-                    }
-                }
-            }
-        );
-    }
+spotify.search({ type: "track", query: search }, function(err, data) {
+  if (err) {
+    return console.log("Error occurred: " + err);
+  }else{ 
+
+    var artistName = data.tracks.items[0].artists[0].name;
+    var songName = data.tracks.items[0].name;
+    var previewLink = data.tracks.items[0].preview_url;
+    var albumName = data.tracks.items[0].album.name
+
+    console.log("Artist: " + artistName);
+    console.log("Song Name: " + songName);
+    console.log("Preview Link: " + previewLink);
+    console.log("Album: " + albumName);
     
+
+      }
+    });
+  }
+
+    
+      // Artist(s)
+      // The song's name
+      // A preview link of the song from Spotify
+      // The album that the song is from
+
+  // for (var i=0; i<data.length; i++){
+  //     console.log(data.tracks.items[i])
+  //     console.log(data.tracks.items[i].name)
+  //     console.log(data.tracks.items[i].album.name)
+  //     // var songName = data.tracks.items[song].name;
+      // var albumName = data.tracks.items[song].album.name;
+      // var artistName = data.tracks.items[song].album.artists[i].name;
+      // var url = data.tracks.items[song].album.external_urls.spotify;
+      // console.log ("RESULT" + songName, albumName, artistName, url)
+
+
+// if (input==="spotify-this-song"){ 
+//      spotify.search({type:"track",query: search},
+//     function (error, data){
+//     if (error) { 
+//         console.log("You had an error" + error) 
+//         console.log("Hmmm we don't know that one, can you hum it?")
+//     }else{
+//       var songs= data  
+//       console.log("RESULTS" + songs)
+//       // console.log(Object.keys.songs)
+//       // console.log(songs.tracks.items[0])
+//       // console.log("Search results" + songs)
+//       // var songName = songs.tracks.items[0].name;
+//       // var albumName = songs.tracks.items[0].album.name;
+//       // var artistName = songs.tracks.items[0].album.artists[0].name;
+//       // var url = songs.tracks.items[0].album.external_urls.spotify;
+//       // console.log ("RESULT" + songName, albumName, artistName, url)
+//       }
+//     });
+//   }
