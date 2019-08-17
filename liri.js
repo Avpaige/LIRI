@@ -79,56 +79,21 @@ spotify.search({ type: "track", query: search }, function(err, data) {
   if (err) {
     return console.log("Error occurred: " + err);
   }else{ 
+  
+  for (i=0; i<5; i++){
+    var artistName = data.tracks.items[i].artists[0].name;
+    var songName = data.tracks.items[i].name;
+    var previewLink = data.tracks.items[i].preview_url;
+    var albumName = data.tracks.items[i].album.name
 
-    var artistName = data.tracks.items[0].artists[0].name;
-    var songName = data.tracks.items[0].name;
-    var previewLink = data.tracks.items[0].preview_url;
-    var albumName = data.tracks.items[0].album.name
-
+    console.log("-----------------------------")
     console.log("Artist: " + artistName);
     console.log("Song Name: " + songName);
     console.log("Preview Link: " + previewLink);
     console.log("Album: " + albumName);
-    
-
+    console.log("-----------------------------")
+        }
       }
     });
   }
 
-    
-      // Artist(s)
-      // The song's name
-      // A preview link of the song from Spotify
-      // The album that the song is from
-
-  // for (var i=0; i<data.length; i++){
-  //     console.log(data.tracks.items[i])
-  //     console.log(data.tracks.items[i].name)
-  //     console.log(data.tracks.items[i].album.name)
-  //     // var songName = data.tracks.items[song].name;
-      // var albumName = data.tracks.items[song].album.name;
-      // var artistName = data.tracks.items[song].album.artists[i].name;
-      // var url = data.tracks.items[song].album.external_urls.spotify;
-      // console.log ("RESULT" + songName, albumName, artistName, url)
-
-
-// if (input==="spotify-this-song"){ 
-//      spotify.search({type:"track",query: search},
-//     function (error, data){
-//     if (error) { 
-//         console.log("You had an error" + error) 
-//         console.log("Hmmm we don't know that one, can you hum it?")
-//     }else{
-//       var songs= data  
-//       console.log("RESULTS" + songs)
-//       // console.log(Object.keys.songs)
-//       // console.log(songs.tracks.items[0])
-//       // console.log("Search results" + songs)
-//       // var songName = songs.tracks.items[0].name;
-//       // var albumName = songs.tracks.items[0].album.name;
-//       // var artistName = songs.tracks.items[0].album.artists[0].name;
-//       // var url = songs.tracks.items[0].album.external_urls.spotify;
-//       // console.log ("RESULT" + songName, albumName, artistName, url)
-//       }
-//     });
-//   }
