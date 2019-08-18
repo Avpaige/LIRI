@@ -39,7 +39,7 @@ To run this program on your terminal follow the below steps:
         ![Movie Finder Demo](demo/moviethis.gif)
 
         do-what-it-says SURPRISE
-        ![Concert Finder Demo](demo/dowhatitsays.gif)
+        ![Concert Finder Demo](https://github.com/Avpaige/LIRI/blob/master/demo/concerthis.gif)
         
         *For all searches either leave no spaces in query or put search in quotes
 
