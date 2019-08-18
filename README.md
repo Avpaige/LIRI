@@ -9,7 +9,7 @@ Structured to function as a single terminal file to search via node you can sear
 
 To run this program on your terminal follow the below steps:
 
-    1. Create your own Spotify access key via the API. By going to:
+    1a. Create your own Spotify access key via the API. By going to:
         Do this by:
             Step One: Visit https://developer.spotify.com/my-applications/#!/
             Step Two: Either login to your existing Spotify account or create a new one (a free account is fine) and log in.
@@ -21,12 +21,24 @@ To run this program on your terminal follow the below steps:
 
             SPOTIFY_ID=your_APP_ID_here
             SPOTIFY_SECRET=your_API_secret_here
+    1b. Obtain API keys for Bands in Town and oMDB for axios calls.
+        BandsInTown Email support@bandsintown.com for an API key
+        oMDB API key can be obtained by going to http://www.omdbapi.com/
     2. Run npm install to install all dependcies associated with this app.
-    3. To search use the following commands:
-        concert-this YOUR ARTIST/BAND SEARCH
+    3. To search use the following commands*:
+        concert-this YOUR ARTIST/BAND SEARCH 
+        ![Concert Finder Demo](demo/concertthisdemo.wedm)
+
         spotify-this-song YOUR SONG TITLE SEARCH
+        ![Song Finder Demo](demo/spotifythisdemo.wedm)
+       
         movie-this YOUR MOVIE SEARCH
+        ![Movie Finder Demo](demo/moviethisdemo.wedm)
+
         do-what-it-says SURPRISE
+        ![Concert Finder Demo](demo/dowhatitsaysdemo.wedm)
+        
+        *For all searches either leave no spaces in query or put search in quotes
 
 
 This LIRI bot utilizies: JQuery, Moment, Noda and APIs from Spotify, Bands in Town and oMDB 
