@@ -30,16 +30,11 @@ To run this program on your terminal follow the below steps:
 
     3. To search use the following commands*:
         concert-this YOUR ARTIST/BAND SEARCH 
-        ![Concert Finder Demo](demo/concerthis.gif)
-
         spotify-this-song YOUR SONG TITLE SEARCH
-        ![Song Finder Demo](demo/spotifythis.gif)
-       
         movie-this YOUR MOVIE SEARCH
-        ![Movie Finder Demo](demo/moviethis.gif)
-
         do-what-it-says SURPRISE
-        ![Concert Finder Demo](https://github.com/Avpaige/LIRI/blob/master/demo/concerthis.gif)
+        
+        Video and Gif demos for all searches available in demo folder.
         
         *For all searches either leave no spaces in query or put search in quotes
 
