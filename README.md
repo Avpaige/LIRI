@@ -41,9 +41,7 @@ To run this program on your terminal follow the below steps:
         do-what-it-says SURPRISE
         ![Concert Finder Demo](demo/dowhatitsays.gif)
         
-        *For all searches either leave no spaces in query or put search in quotes
-
-
+       
 This LIRI bot utilizies: JQuery, Moment, Noda and APIs from Spotify, Bands in Town and oMDB 
 Link: https://avpaige.github.io/LIRI/ 
 I developed this application as part of the UCLA Web Developement Extension course work.
